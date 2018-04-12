@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	srand(time(0));
 	int iterations = atoi(argv[3]);
 	ifstream file(argv[1]);
-	ofstream output("20x20.txt");
+	ofstream output("output.txt");
 	int size;
 	file>>size>>size;
 	output<<size<<" "<<size<<endl;
@@ -50,12 +50,13 @@ int main(int argc, char *argv[])
 			}
 		}
 		copy_matrix(current_generation, next_generation,size);
+		output<<"Generation: "<< i+1<<endl;
 		for (int i = 0; i < size; ++i)
 		{
 			for (int j = 0; j < size; ++j)
 			{
 				output<<current_generation[i*size+j]<<" ";
-			}
+			}output<<endl;
 		}output<<endl;
 	}
 
